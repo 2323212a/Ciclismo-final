@@ -47,6 +47,8 @@ def mostrar_index():
 @app.post("/usuarios")
 def crear(usuario: Usuario):
     try:
+        print("📩 Datos recibidos:", usuario)
+
         password_hash = hash_password(usuario.password)
 
         queries.crear_usuario(
@@ -56,8 +58,13 @@ def crear(usuario: Usuario):
             usuario.categoria,
             usuario.rol
         )
+
+        print("✅ Usuario insertado correctamente")
+
         return {"mensaje": "Usuario creado"}
+
     except Exception as e:
+        print("🔥 ERROR REAL:", e)
         raise HTTPException(status_code=400, detail=str(e))
 # -----------------------
 # LOGIN
