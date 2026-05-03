@@ -5,4 +5,4 @@ class Usuario(BaseModel):
     email: str
     password: str
     categoria: str
-    rol: str = "usuario"
+    rol: str = "usuario"   # 🔥 AQUÍ ESTÁ LA MAGIA
