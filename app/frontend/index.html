@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPEBICI — Competencia de Bicicletas 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="bg-[#0a0a0a] text-white font-sans">
+
+    <!-- ═══════════════════════════════════════════
+         NAVEGACIÓN
+    ═══════════════════════════════════════════ -->
+    <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto border-b border-gray-900">
+        <div class="text-2xl font-black tracking-tighter">
+            COMPEBICI<span class="text-[#d4ff00]">.</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest text-gray-400">
+            <a href="#categorias" class="hover:text-white transition">Categorías</a>
+            <a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a>
+            <a href="#ruta" class="hover:text-white transition">La Ruta</a>
+            <a href="#premios" class="hover:text-white transition">Premios</a>
+            <a href="#faq" class="hover:text-white transition">FAQ</a>
+        </div>
+        <!-- Botón dinámico según sesión -->
+        <div id="navAccion">
+            <a href="#registro" class="bg-[#d4ff00] text-black px-5 py-2 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-white transition">
+                Inscríbete ya
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <header class="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+            <span class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest">📅 Inscripciones abiertas · Edición 2026</span>
+            <h1 class="text-6xl md:text-8xl font-black uppercase leading-none mt-4">
+                Compite.<br>
+                <span class="text-[#d4ff00]">Rueda.</span><br>
+                Gana.
+            </h1>
+            <p class="text-gray-400 mt-6 max-w-md leading-relaxed">
+                La competencia de ciclismo más emocionante del sureste mexicano. Tres categorías, cronometraje en tiempo real, premiación en efectivo y una experiencia que no olvidarás.
+            </p>
+
+            <!-- Stats rápidas -->
+            <div class="mt-8 grid grid-cols-3 gap-4 border-t border-gray-800 pt-8">
+                <div>
+                    <span class="text-3xl font-black text-[#d4ff00]">3</span>
+                    <p class="text-xs text-gray-500 uppercase mt-1">Categorías</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-black text-[#d4ff00]">80km</span>
+                    <p class="text-xs text-gray-500 uppercase mt-1">Distancia máx.</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-black text-[#d4ff00]">$50k</span>
+                    <p class="text-xs text-gray-500 uppercase mt-1">En premios</p>
+                </div>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+                <a href="#registro" class="bg-[#d4ff00] text-black px-8 py-3 font-bold uppercase tracking-widest hover:bg-white transition">
+                    Inscríbete ahora
+                </a>
+                <a href="#como-funciona" class="border border-gray-600 px-8 py-3 font-bold uppercase hover:bg-white hover:text-black transition">
+                    Ver más info
+                </a>
+            </div>
+        </div>
+
+        <div class="md:w-1/2 relative">
+            <div class="w-full h-96 bg-gradient-to-tr from-[#1a1a1a] to-[#d4ff00]/20 rounded-lg flex flex-col items-center justify-center border border-gray-800 gap-3">
+                <span class="text-8xl">🚴</span>
+                <span class="text-gray-500 italic text-sm">[ Imagen oficial del evento ]</span>
+            </div>
+            <!-- Etiqueta flotante -->
+            <div class="absolute -bottom-4 -left-4 bg-[#d4ff00] text-black px-4 py-2 font-black text-xs uppercase tracking-widest">
+                Cupos limitados
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ═══════════════════════════════════════════
+         FECHA Y LUGAR
+    ═══════════════════════════════════════════ -->
+    <section class="bg-[#d4ff00] py-5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4 text-black text-sm font-bold uppercase tracking-widest">
+            <span>📍 Tuxtla Gutiérrez, Chiapas</span>
+            <span>📅 15 de Agosto, 2026</span>
+            <span>⏰ Salida: 6:00 AM</span>
+            <span>🏁 Meta: Parque de la Marimba</span>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         CATEGORÍAS
+    ═══════════════════════════════════════════ -->
+    <section id="categorias" class="bg-[#111] py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest mb-2">Para todos los niveles</p>
+            <h2 class="text-4xl font-black uppercase mb-4">Encuentra tu <span class="text-[#d4ff00]">categoría</span></h2>
+            <p class="text-gray-500 max-w-xl mb-12">Desde ciclistas de fin de semana hasta competidores de élite, aquí hay un lugar para ti. Elige la distancia y el reto que mejor se adapte a tu nivel.</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Amateur -->
+                <div class="card-categoria p-8 border-l-2 border-gray-800 bg-[#0f0f0f] hover:border-[#d4ff00] transition-all">
+                    <span class="text-5xl font-black text-gray-800">01</span>
+                    <h3 class="text-xl font-bold mt-4 uppercase">Amateur</h3>
+                    <p class="text-gray-500 mt-2 text-sm leading-relaxed">Para los que se inician en el ciclismo de competencia. Rutas accesibles, mucha diversión y el primer paso hacia algo grande.</p>
+                    <ul class="mt-6 space-y-2 text-sm text-gray-400">
+                        <li>🚴 Distancia: <span class="text-white font-bold">25 km</span></li>
+                        <li>⛰️ Desnivel: <span class="text-white font-bold">150 m</span></li>
+                        <li>💰 Inscripción: <span class="text-white font-bold">$150 MXN</span></li>
+                        <li>🏆 Premio: Top 3 por género</li>
+                    </ul>
+                    <a href="#registro" class="mt-6 block text-center border border-gray-700 py-2 text-xs uppercase font-bold hover:border-[#d4ff00] hover:text-[#d4ff00] transition">
+                        Inscribirme aquí
+                    </a>
+                </div>
+
+                <!-- Semi-Pro -->
+                <div class="card-categoria p-8 border-l-2 border-[#d4ff00] bg-[#0f0f0f] hover:border-[#d4ff00] transition-all relative">
+                    <span class="absolute top-4 right-4 bg-[#d4ff00] text-black text-xs font-black px-2 py-1 uppercase">Popular</span>
+                    <span class="text-5xl font-black text-gray-800">02</span>
+                    <h3 class="text-xl font-bold mt-4 uppercase text-[#d4ff00]">Semi-Pro</h3>
+                    <p class="text-gray-500 mt-2 text-sm leading-relaxed">Para ciclistas con experiencia que buscan un reto mayor. Rutas con pendientes y tramos técnicos que pondrán a prueba tu resistencia.</p>
+                    <ul class="mt-6 space-y-2 text-sm text-gray-400">
+                        <li>🚴 Distancia: <span class="text-white font-bold">50 km</span></li>
+                        <li>⛰️ Desnivel: <span class="text-white font-bold">600 m</span></li>
+                        <li>💰 Inscripción: <span class="text-white font-bold">$250 MXN</span></li>
+                        <li>🏆 Premio: Top 5 por género</li>
+                    </ul>
+                    <a href="#registro" class="mt-6 block text-center bg-[#d4ff00] text-black py-2 text-xs uppercase font-black hover:bg-white transition">
+                        Inscribirme aquí
+                    </a>
+                </div>
+
+                <!-- Alto Rendimiento -->
+                <div class="card-categoria p-8 border-l-2 border-gray-800 bg-[#0f0f0f] hover:border-[#d4ff00] transition-all">
+                    <span class="text-5xl font-black text-gray-800">03</span>
+                    <h3 class="text-xl font-bold mt-4 uppercase">Alto Rendimiento</h3>
+                    <p class="text-gray-500 mt-2 text-sm leading-relaxed">Nivel competitivo máximo. Solo para ciclistas expertos que buscan superar sus propios límites en una ruta de exigencia élite.</p>
+                    <ul class="mt-6 space-y-2 text-sm text-gray-400">
+                        <li>🚴 Distancia: <span class="text-white font-bold">80 km</span></li>
+                        <li>⛰️ Desnivel: <span class="text-white font-bold">1,200 m</span></li>
+                        <li>💰 Inscripción: <span class="text-white font-bold">$400 MXN</span></li>
+                        <li>🏆 Premio: Top 10 + premio especial</li>
+                    </ul>
+                    <a href="#registro" class="mt-6 block text-center border border-gray-700 py-2 text-xs uppercase font-bold hover:border-[#d4ff00] hover:text-[#d4ff00] transition">
+                        Inscribirme aquí
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         CÓMO FUNCIONA
+    ═══════════════════════════════════════════ -->
+    <section id="como-funciona" class="py-24 max-w-7xl mx-auto px-6">
+        <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest mb-2">Simple y transparente</p>
+        <h2 class="text-4xl font-black uppercase mb-12">Cómo <span class="text-[#d4ff00]">funciona</span></h2>
+
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="paso-item border-t-2 border-gray-800 pt-6 hover:border-[#d4ff00] transition-all">
+                <span class="text-[#d4ff00] text-xs font-bold uppercase">Paso 01</span>
+                <h3 class="text-lg font-bold mt-2">Regístrate en línea</h3>
+                <p class="text-gray-500 text-sm mt-2">Llena el formulario, elige tu categoría y completa el pago en línea. Recibirás confirmación por correo.</p>
+            </div>
+            <div class="paso-item border-t-2 border-gray-800 pt-6 hover:border-[#d4ff00] transition-all">
+                <span class="text-[#d4ff00] text-xs font-bold uppercase">Paso 02</span>
+                <h3 class="text-lg font-bold mt-2">Recoge tu kit</h3>
+                <p class="text-gray-500 text-sm mt-2">El día previo al evento, recoge tu número de participante, chip de cronometraje y kit de bienvenida.</p>
+            </div>
+            <div class="paso-item border-t-2 border-gray-800 pt-6 hover:border-[#d4ff00] transition-all">
+                <span class="text-[#d4ff00] text-xs font-bold uppercase">Paso 03</span>
+                <h3 class="text-lg font-bold mt-2">Corre la ruta</h3>
+                <p class="text-gray-500 text-sm mt-2">El día del evento, toma tu posición en el cajón de salida y da todo en la ruta. Estaciones de hidratación cada 10 km.</p>
+            </div>
+            <div class="paso-item border-t-2 border-gray-800 pt-6 hover:border-[#d4ff00] transition-all">
+                <span class="text-[#d4ff00] text-xs font-bold uppercase">Paso 04</span>
+                <h3 class="text-lg font-bold mt-2">Recibe tu medalla</h3>
+                <p class="text-gray-500 text-sm mt-2">Al cruzar la meta, recibes tu medalla de finisher. Los ganadores serán premiados en la ceremonia del mismo día.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         LA RUTA
+    ═══════════════════════════════════════════ -->
+    <section id="ruta" class="bg-[#111] py-24">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
+            <div class="md:w-1/2">
+                <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest mb-2">El escenario</p>
+                <h2 class="text-4xl font-black uppercase mb-6">La <span class="text-[#d4ff00]">Ruta</span></h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Salida desde el Parque Central con paso por los miradores más icónicos de Chiapas. La ruta combina tramos de asfalto en excelente estado con secciones de camino rústico que ponen a prueba el control técnico de cada ciclista.
+                </p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><span class="text-[#d4ff00] font-bold mt-0.5">→</span> Inicio: Parque Central de Tuxtla Gutiérrez</li>
+                    <li class="flex items-start gap-3"><span class="text-[#d4ff00] font-bold mt-0.5">→</span> Paso por: Cañón del Sumidero (vistas panorámicas)</li>
+                    <li class="flex items-start gap-3"><span class="text-[#d4ff00] font-bold mt-0.5">→</span> Punto de abastecimiento: km 15, km 30, km 50</li>
+                    <li class="flex items-start gap-3"><span class="text-[#d4ff00] font-bold mt-0.5">→</span> Meta: Parque de la Marimba</li>
+                    <li class="flex items-start gap-3"><span class="text-[#d4ff00] font-bold mt-0.5">→</span> Servicio médico disponible en toda la ruta</li>
+                </ul>
+            </div>
+            <div class="md:w-1/2">
+                <div class="w-full h-80 bg-gradient-to-br from-[#1a1a1a] to-[#d4ff00]/10 rounded-lg flex flex-col items-center justify-center border border-gray-800 gap-3">
+                    <span class="text-6xl">🗺️</span>
+                    <span class="text-gray-500 italic text-sm">[ Mapa oficial de la ruta ]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         PREMIOS
+    ═══════════════════════════════════════════ -->
+    <section id="premios" class="py-24 max-w-7xl mx-auto px-6">
+        <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest mb-2">Vale la pena el esfuerzo</p>
+        <h2 class="text-4xl font-black uppercase mb-12">Premios y <span class="text-[#d4ff00]">reconocimientos</span></h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-[#111] border border-gray-800 p-8">
+                <span class="text-4xl">🥇</span>
+                <h3 class="text-xl font-bold uppercase mt-4">1er Lugar</h3>
+                <p class="text-[#d4ff00] text-3xl font-black mt-2">$15,000 <span class="text-sm font-normal text-gray-400">MXN</span></p>
+                <p class="text-gray-500 text-sm mt-2">+ Trofeo oficial + Kit de patrocinadores + Medalla de oro</p>
+            </div>
+            <div class="bg-[#111] border border-gray-800 p-8">
+                <span class="text-4xl">🥈</span>
+                <h3 class="text-xl font-bold uppercase mt-4">2do Lugar</h3>
+                <p class="text-[#d4ff00] text-3xl font-black mt-2">$8,000 <span class="text-sm font-normal text-gray-400">MXN</span></p>
+                <p class="text-gray-500 text-sm mt-2">+ Trofeo oficial + Kit de patrocinadores + Medalla de plata</p>
+            </div>
+            <div class="bg-[#111] border border-gray-800 p-8">
+                <span class="text-4xl">🥉</span>
+                <h3 class="text-xl font-bold uppercase mt-4">3er Lugar</h3>
+                <p class="text-[#d4ff00] text-3xl font-black mt-2">$5,000 <span class="text-sm font-normal text-gray-400">MXN</span></p>
+                <p class="text-gray-500 text-sm mt-2">+ Trofeo oficial + Kit de patrocinadores + Medalla de bronce</p>
+            </div>
+        </div>
+
+        <p class="text-gray-600 text-sm mt-8 text-center">* Premios aplicables por categoría y por género. Todos los finishers reciben medalla y certificado de participación.</p>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         FAQ
+    ═══════════════════════════════════════════ -->
+    <section id="faq" class="bg-[#111] py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest mb-2">Resolvemos tus dudas</p>
+            <h2 class="text-4xl font-black uppercase mb-12">Preguntas <span class="text-[#d4ff00]">frecuentes</span></h2>
+
+            <div class="space-y-6">
+                <div class="faq-item border-b border-gray-800 pb-6">
+                    <h4 class="font-bold uppercase text-sm">¿Necesito experiencia previa para participar?</h4>
+                    <p class="text-gray-500 text-sm mt-2">No para la categoría Amateur. Está diseñada para personas que practican ciclismo recreativo. Para Semi-Pro y Alto Rendimiento sí recomendamos experiencia en competencias previas.</p>
+                </div>
+                <div class="faq-item border-b border-gray-800 pb-6">
+                    <h4 class="font-bold uppercase text-sm">¿Qué tipo de bicicleta necesito?</h4>
+                    <p class="text-gray-500 text-sm mt-2">La ruta es mixta (asfalto y terracería), por lo que se recomienda bicicleta de montaña o gravel. No se permiten bicicletas de pista o fixie.</p>
+                </div>
+                <div class="faq-item border-b border-gray-800 pb-6">
+                    <h4 class="font-bold uppercase text-sm">¿Puedo transferir mi inscripción a otra persona?</h4>
+                    <p class="text-gray-500 text-sm mt-2">Sí, hasta 10 días antes del evento con un costo administrativo de $50 MXN. Envía un correo a inscripciones@compedici.mx con los datos del nuevo participante.</p>
+                </div>
+                <div class="faq-item border-b border-gray-800 pb-6">
+                    <h4 class="font-bold uppercase text-sm">¿Hay reembolsos si no puedo asistir?</h4>
+                    <p class="text-gray-500 text-sm mt-2">Reembolsos del 80% hasta 30 días antes del evento. No se realizan reembolsos dentro de los 30 días previos al evento.</p>
+                </div>
+                <div class="faq-item border-b border-gray-800 pb-6">
+                    <h4 class="font-bold uppercase text-sm">¿Es obligatorio el casco?</h4>
+                    <p class="text-gray-500 text-sm mt-2">Sí, el uso de casco es obligatorio en todas las categorías. Los participantes sin casco homologado no podrán salir en la competencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         REGISTRO
+    ═══════════════════════════════════════════ -->
+    <section id="registro" class="py-24 max-w-4xl mx-auto px-6">
+        <div class="bg-[#1a1a1a] p-10 rounded-lg border border-gray-800">
+            <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest text-center mb-2">Cupos limitados · Cierra el 31 de julio 2026</p>
+            <h2 class="text-4xl font-black uppercase text-center mb-2">Regístrate ahora</h2>
+            <p class="text-gray-400 text-center mb-10">Lleva tu nivel al siguiente escalón</p>
+
+            <form id="formRegistro" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Nombre Completo</label>
+                    <input type="text" name="nombre" required placeholder="Ej. Carlos Mendoza"
+                        class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Email</label>
+                    <input type="email" name="email" required placeholder="tucorreo@email.com"
+                        class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Contraseña</label>
+                    <input type="password" name="password" required placeholder="Mínimo 8 caracteres"
+                        class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Categoría</label>
+                    <select name="categoria"
+                        class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                        <option value="Amateur">Amateur — 25 km · $150 MXN</option>
+                        <option value="Semi-Pro">Semi-Pro — 50 km · $250 MXN</option>
+                        <option value="Alto Rendimiento">Alto Rendimiento — 80 km · $400 MXN</option>
+                    </select>
+                </div>
+                <div class="md:col-span-2 mt-4">
+                    <button type="submit"
+                        class="w-full bg-[#d4ff00] text-black font-black py-4 uppercase tracking-widest hover:bg-white transition">
+                        Confirmar Inscripción →
+                    </button>
+                    <p class="text-gray-600 text-xs text-center mt-3">Al registrarte aceptas los términos y condiciones del evento.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         LOGIN
+    ═══════════════════════════════════════════ -->
+    <section id="login" class="py-10 max-w-4xl mx-auto px-6">
+        <div class="bg-[#1a1a1a] p-10 rounded-lg border border-gray-800">
+            <h2 class="text-3xl font-black uppercase text-center mb-2">Iniciar Sesión</h2>
+            <p class="text-gray-400 text-center mb-8 text-sm">¿Ya tienes cuenta? Accede para ver tu estado de inscripción.</p>
+
+            <form id="formLogin" class="grid grid-cols-1 gap-6 max-w-md mx-auto">
+                <div>
+                    <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Email</label>
+                    <input type="email" name="login_email" required placeholder="tucorreo@email.com"
+                        class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Contraseña</label>
+                    <input type="password" name="login_password" required
+                        class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                </div>
+                <button type="submit" class="bg-[#d4ff00] text-black py-3 font-black uppercase tracking-widest hover:bg-white transition">
+                    Entrar →
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         PANEL DE PERFIL (oculto por defecto)
+    ═══════════════════════════════════════════ -->
+    <section id="perfilPanel" class="py-16 max-w-4xl mx-auto px-6 hidden">
+        <div class="bg-[#1a1a1a] border border-gray-800 rounded-lg overflow-hidden">
+
+            <!-- Cabecera -->
+            <div class="bg-[#111] border-b border-gray-800 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                    <p class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest mb-1">Mi cuenta</p>
+                    <h2 class="text-3xl font-black uppercase" id="perfilNombre">—</h2>
+                    <div class="flex items-center gap-3 mt-2">
+                        <span id="perfilCategoriaBadge" class="bg-[#d4ff00]/10 text-[#d4ff00] text-xs font-black px-3 py-1 uppercase">—</span>
+                        <span id="perfilRolBadge" class="bg-gray-800 text-gray-400 text-xs font-bold px-3 py-1 uppercase">—</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="toggleEditarPerfil()"
+                        class="border border-gray-600 px-5 py-2 text-xs uppercase font-bold hover:border-[#d4ff00] hover:text-[#d4ff00] transition">
+                        ✏️ Editar perfil
+                    </button>
+                    <button onclick="confirmarEliminarPropioUsuario()"
+                        class="border border-red-900 text-red-500 px-5 py-2 text-xs uppercase font-bold hover:bg-red-500 hover:text-black transition">
+                        🗑 Eliminar cuenta
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vista de info -->
+            <div id="vistaInfoPerfil" class="p-8 grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <p class="text-xs uppercase text-gray-500 font-bold mb-1">Nombre</p>
+                    <p id="perfilNombreInfo" class="text-white font-bold text-base">—</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-gray-500 font-bold mb-1">Email</p>
+                    <p id="perfilEmailInfo" class="text-white font-bold text-base">—</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-gray-500 font-bold mb-1">Categoría inscrita</p>
+                    <p id="perfilCategoriaInfo" class="text-white font-bold text-base">—</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-gray-500 font-bold mb-1">Rol</p>
+                    <p id="perfilRolInfo" class="text-white font-bold text-base">—</p>
+                </div>
+            </div>
+
+            <!-- Formulario de edición (oculto por defecto) -->
+            <div id="vistaEditarPerfil" class="hidden p-8">
+                <p class="text-xs uppercase text-gray-500 font-bold mb-6 border-b border-gray-800 pb-4">
+                    Editar información · La contraseña es obligatoria para guardar cualquier cambio
+                </p>
+                <form id="formEditarPerfil" class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Nombre</label>
+                        <input type="text" id="editNombre"
+                            class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Email</label>
+                        <input type="email" id="editEmail"
+                            class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">
+                            Contraseña <span class="text-red-400 normal-case font-normal">* requerida para guardar</span>
+                        </label>
+                        <input type="password" id="editPassword" required placeholder="Contraseña actual o nueva"
+                            class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Categoría</label>
+                        <select id="editCategoria"
+                            class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
+                            <option value="Amateur">Amateur — 25 km · $150 MXN</option>
+                            <option value="Semi-Pro">Semi-Pro — 50 km · $250 MXN</option>
+                            <option value="Alto Rendimiento">Alto Rendimiento — 80 km · $400 MXN</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2 flex flex-wrap gap-4 mt-2">
+                        <button type="submit"
+                            class="flex-1 bg-[#d4ff00] text-black font-black py-3 uppercase tracking-widest hover:bg-white transition">
+                            Guardar cambios →
+                        </button>
+                        <button type="button" onclick="toggleEditarPerfil()"
+                            class="border border-gray-700 px-8 py-3 font-bold uppercase text-sm hover:border-white transition">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         PANEL ADMIN (oculto por defecto)
+    ═══════════════════════════════════════════ -->
+    <section id="adminPanel" class="py-20 max-w-6xl mx-auto px-6 hidden">
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <span class="text-[#d4ff00] text-xs font-bold uppercase tracking-widest">Acceso restringido</span>
+                <h2 class="text-3xl font-black uppercase mt-1">Panel de Administrador</h2>
+            </div>
+            <span class="bg-[#d4ff00] text-black text-xs font-black px-3 py-1 uppercase" id="totalParticipantes">Cargando...</span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border border-gray-800">
+                <thead>
+                    <tr class="bg-[#1a1a1a] text-xs uppercase tracking-widest text-gray-400">
+                        <th class="p-4">ID</th>
+                        <th class="p-4">Nombre</th>
+                        <th class="p-4">Email</th>
+                        <th class="p-4">Categoría</th>
+                        <th class="p-4">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaUsuarios" class="text-sm"></tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════ -->
+    <footer class="border-t border-gray-900 mt-10">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-sm text-gray-500">
+            <div>
+                <div class="text-white font-black text-xl tracking-tighter mb-3">COMPEDICI<span class="text-[#d4ff00]">.</span></div>
+                <p>La competencia de ciclismo más emocionante del sureste mexicano. Edición 2026.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase text-xs tracking-widest mb-3">Navegación</h4>
+                <ul class="space-y-2">
+                    <li><a href="#categorias" class="hover:text-white transition">Categorías</a></li>
+                    <li><a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a></li>
+                    <li><a href="#ruta" class="hover:text-white transition">La Ruta</a></li>
+                    <li><a href="#premios" class="hover:text-white transition">Premios</a></li>
+                    <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase text-xs tracking-widest mb-3">Contacto</h4>
+                <ul class="space-y-2">
+                    <li>📧 inscripciones@compedici.mx</li>
+                    <li>📱 +52 961 000 0000</li>
+                    <li>📍 Tuxtla Gutiérrez, Chiapas, MX</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-900 py-4 text-center text-gray-700 text-xs uppercase tracking-widest">
+            &copy; 2026 Compedici — Competencia de Bicicletas. Todos los derechos reservados.
+        </div>
+    </footer>
+
+
+    <!-- ═══════════════════════════════════════════
+         SCRIPTS
+    ═══════════════════════════════════════════ -->
+    <script>
+        const API_URL = "http://127.0.0.1:8000";
+
+        // ════════════════════════════════════════════
+        // ESTADO DE SESIÓN
+        // ════════════════════════════════════════════
+
+        // Datos completos del usuario en sesión (viene de GET /usuarios/{id} tras login)
+        let sesionUsuario = null;
+
+        // Al cargar la página, revisar si hay sesión guardada
+        window.addEventListener("DOMContentLoaded", () => {
+            const guardado = localStorage.getItem("usuario");
+            if (guardado) {
+                const base = JSON.parse(guardado);
+                // Recargar datos completos desde la API para tener email y categoria
+                cargarSesion(base.id, base.rol);
+            }
+        });
+
+        async function cargarSesion(id, rol) {
+            try {
+                const res = await fetch(`${API_URL}/usuarios/${id}`);
+                if (!res.ok) { cerrarSesion(); return; }
+                sesionUsuario = await res.json();
+                mostrarEstadoLogueado(sesionUsuario);
+            } catch {
+                cerrarSesion();
+            }
+        }
+
+        function mostrarEstadoLogueado(u) {
+            // Navbar: reemplazar botón de registro por nombre + cerrar sesión
+            document.getElementById("navAccion").innerHTML = `
+                <div class="flex items-center gap-3">
+                    <a href="#perfilPanel"
+                        class="text-sm font-bold text-[#d4ff00] uppercase tracking-widest hover:text-white transition">
+                        👤 ${u.nombre.split(" ")[0]}
+                    </a>
+                    <button onclick="cerrarSesion()"
+                        class="border border-gray-700 text-gray-400 px-4 py-2 text-xs uppercase font-bold hover:border-red-500 hover:text-red-400 transition">
+                        Salir
+                    </button>
+                </div>
+            `;
+
+            // Ocultar secciones de registro y login
+            document.getElementById("registro").classList.add("hidden");
+            document.getElementById("login").classList.add("hidden");
+
+            // Mostrar panel de perfil
+            document.getElementById("perfilPanel").classList.remove("hidden");
+            renderizarPerfil(u);
+
+            // Si es admin, mostrar panel admin
+            if (u.rol === "admin") {
+                document.getElementById("adminPanel").classList.remove("hidden");
+                cargarUsuarios();
+            }
+        }
+
+        function renderizarPerfil(u) {
+            document.getElementById("perfilNombre").textContent       = u.nombre;
+            document.getElementById("perfilNombreInfo").textContent   = u.nombre;
+            document.getElementById("perfilEmailInfo").textContent    = u.email;
+            document.getElementById("perfilCategoriaInfo").textContent = u.categoria;
+            document.getElementById("perfilRolInfo").textContent      = u.rol;
+            document.getElementById("perfilCategoriaBadge").textContent = u.categoria;
+            document.getElementById("perfilRolBadge").textContent     = u.rol === "admin" ? "⭐ Admin" : "Participante";
+
+            // Precargar valores en el formulario de edición
+            document.getElementById("editNombre").value    = u.nombre;
+            document.getElementById("editEmail").value     = u.email;
+            document.getElementById("editCategoria").value = u.categoria;
+            document.getElementById("editPassword").value  = "";
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem("usuario");
+            sesionUsuario = null;
+            location.reload();
+        }
+
+
+        // ════════════════════════════════════════════
+        // REGISTRO
+        // ════════════════════════════════════════════
+        document.getElementById("formRegistro").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const data = {
+                nombre:    this.querySelector('[name="nombre"]').value,
+                email:     this.querySelector('[name="email"]').value,
+                password:  this.querySelector('[name="password"]').value,
+                categoria: this.querySelector('[name="categoria"]').value
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/usuarios`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+                const result = await res.json();
+
+                if (res.ok) {
+                    alert("✅ ¡Registro exitoso! Ahora inicia sesión.");
+                    this.reset();
+                    document.getElementById("login").scrollIntoView({ behavior: "smooth" });
+                } else {
+                    alert("❌ Error: " + (result.detail || "Intenta de nuevo."));
+                }
+            } catch {
+                alert("❌ Error de conexión con el servidor.");
+            }
+        });
+
+
+        // ════════════════════════════════════════════
+        // LOGIN
+        // ════════════════════════════════════════════
+        document.getElementById("formLogin").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const data = new URLSearchParams();
+            data.append("email",    this.querySelector('[name="login_email"]').value);
+            data.append("password", this.querySelector('[name="login_password"]').value);
+
+            try {
+                const res    = await fetch(`${API_URL}/login`, { method: "POST", body: data });
+                const result = await res.json();
+
+                if (res.ok) {
+                    // Guardar id y rol para luego recargar datos completos
+                    localStorage.setItem("usuario", JSON.stringify({
+                        id:  result.usuario.id,
+                        rol: result.usuario.rol
+                    }));
+                    await cargarSesion(result.usuario.id, result.usuario.rol);
+                    document.getElementById("perfilPanel").scrollIntoView({ behavior: "smooth" });
+                } else {
+                    alert("❌ Credenciales incorrectas.");
+                }
+            } catch {
+                alert("❌ Error de conexión con el servidor.");
+            }
+        });
+
+
+        // ════════════════════════════════════════════
+        // EDITAR PERFIL
+        // ════════════════════════════════════════════
+        function toggleEditarPerfil() {
+            document.getElementById("vistaInfoPerfil").classList.toggle("hidden");
+            document.getElementById("vistaEditarPerfil").classList.toggle("hidden");
+        }
+
+        document.getElementById("formEditarPerfil").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            if (!sesionUsuario) return;
+
+            const nombre    = document.getElementById("editNombre").value.trim()    || sesionUsuario.nombre;
+            const email     = document.getElementById("editEmail").value.trim()     || sesionUsuario.email;
+            const password  = document.getElementById("editPassword").value;
+            const categoria = document.getElementById("editCategoria").value;
+
+            if (!password) {
+                alert("⚠️ Debes ingresar tu contraseña para guardar los cambios.");
+                return;
+            }
+
+            const data = {
+                nombre,
+                email,
+                password,
+                categoria,
+                rol: sesionUsuario.rol  // conservar el rol actual
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/usuarios/${sesionUsuario.id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                if (res.ok) {
+                    alert("✅ Perfil actualizado correctamente.");
+                    // Recargar datos actualizados
+                    await cargarSesion(sesionUsuario.id, sesionUsuario.rol);
+                    toggleEditarPerfil();
+                } else {
+                    const err = await res.json();
+                    alert("❌ Error: " + (err.detail || "No se pudo actualizar."));
+                }
+            } catch {
+                alert("❌ Error de conexión con el servidor.");
+            }
+        });
+
+
+        // ════════════════════════════════════════════
+        // ELIMINAR PROPIA CUENTA
+        // ════════════════════════════════════════════
+        async function confirmarEliminarPropioUsuario() {
+            if (!sesionUsuario) return;
+            const ok = confirm(
+                `⚠️ ¿Estás seguro de que quieres eliminar tu cuenta?\n\nEsta acción no se puede deshacer. Se perderá tu inscripción a la categoría "${sesionUsuario.categoria}".`
+            );
+            if (!ok) return;
+
+            try {
+                const res = await fetch(`${API_URL}/usuarios/${sesionUsuario.id}`, {
+                    method: "DELETE"
+                });
+                if (res.ok) {
+                    alert("Cuenta eliminada. ¡Hasta pronto!");
+                    cerrarSesion();
+                } else {
+                    alert("❌ No se pudo eliminar la cuenta.");
+                }
+            } catch {
+                alert("❌ Error de conexión con el servidor.");
+            }
+        }
+
+
+        // ════════════════════════════════════════════
+        // ADMIN: CARGAR Y GESTIONAR USUARIOS
+        // ════════════════════════════════════════════
+        async function cargarUsuarios() {
+            try {
+                const res      = await fetch(`${API_URL}/admin/usuarios?rol=admin`);
+                const usuarios = await res.json();
+
+                const tabla = document.getElementById("tablaUsuarios");
+                tabla.innerHTML = "";
+
+                usuarios.forEach(u => {
+                    // El admin no puede borrarse a sí mismo desde la tabla
+                    const esMismoAdmin = sesionUsuario && u.id === sesionUsuario.id;
+                    const botonEliminar = esMismoAdmin
+                        ? `<span class="text-gray-600 text-xs uppercase">—</span>`
+                        : `<button onclick="eliminarUsuario(${u.id}, '${u.nombre}')"
+                                class="border border-red-900 text-red-500 text-xs px-3 py-1 uppercase font-bold hover:bg-red-500 hover:text-black transition">
+                                Eliminar
+                           </button>`;
+
+                    tabla.innerHTML += `
+                        <tr class="border-t border-gray-800 hover:bg-[#111] transition">
+                            <td class="p-4 text-gray-500">${u.id}</td>
+                            <td class="p-4 font-bold">${u.nombre}</td>
+                            <td class="p-4 text-gray-400">${u.email}</td>
+                            <td class="p-4">
+                                <span class="bg-[#d4ff00]/10 text-[#d4ff00] text-xs font-bold px-2 py-1 uppercase">
+                                    ${u.categoria}
+                                </span>
+                            </td>
+                            <td class="p-4">${botonEliminar}</td>
+                        </tr>
+                    `;
+                });
+
+                document.getElementById("totalParticipantes").textContent =
+                    `${usuarios.length} participante${usuarios.length !== 1 ? "s" : ""}`;
+
+            } catch (err) {
+                console.error("Error cargando usuarios:", err);
+            }
+        }
+
+        async function eliminarUsuario(id, nombre) {
+            const ok = confirm(`⚠️ ¿Eliminar al usuario "${nombre}"?\nEsta acción no se puede deshacer.`);
+            if (!ok) return;
+
+            try {
+                const res = await fetch(`${API_URL}/usuarios/${id}`, { method: "DELETE" });
+                if (res.ok) {
+                    alert(`✅ Usuario "${nombre}" eliminado.`);
+                    cargarUsuarios(); // refrescar tabla
+                } else {
+                    alert("❌ No se pudo eliminar el usuario.");
+                }
+            } catch {
+                alert("❌ Error de conexión con el servidor.");
+            }
+        }
+    </script>
+
+</body>
+</html>

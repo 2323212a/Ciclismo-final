@@ -1,0 +1,153 @@
+/* ══════════════════════════════════════════════════════════════
+   COMPEDICI — Estilos personalizados
+   Complementa Tailwind CSS con efectos, animaciones y detalles
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── TIPOGRAFÍA ──────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* ─── SCROLLBAR ───────────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d4ff00;
+}
+
+
+/* ─── TARJETAS DE CATEGORÍA ───────────────────────────────────── */
+.card-categoria {
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.card-categoria:hover {
+    transform: translateY(-6px);
+    background-color: #161616;
+}
+
+
+/* ─── PASOS (cómo funciona) ───────────────────────────────────── */
+.paso-item {
+    transition: border-color 0.25s ease;
+}
+
+.paso-item:hover h3 {
+    color: #d4ff00;
+}
+
+
+/* ─── FAQ ─────────────────────────────────────────────────────── */
+.faq-item h4 {
+    transition: color 0.2s ease;
+    cursor: default;
+}
+
+.faq-item:hover h4 {
+    color: #d4ff00;
+}
+
+
+/* ─── INPUTS Y SELECTS ────────────────────────────────────────── */
+input:focus,
+select:focus {
+    box-shadow: 0 0 12px rgba(212, 255, 0, 0.12);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select option {
+    background-color: #0a0a0a;
+}
+
+
+/* ─── BOTONES ─────────────────────────────────────────────────── */
+a[href="#registro"],
+button[type="submit"] {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+/* ─── TABLA DE ADMIN ──────────────────────────────────────────── */
+#tablaUsuarios tr {
+    transition: background-color 0.15s ease;
+}
+
+
+/* ─── PANEL DE PERFIL ─────────────────────────────────────────── */
+#perfilPanel .bg-\[\#1a1a1a\] {
+    transition: border-color 0.2s ease;
+}
+
+/* Botones de acción en el perfil */
+#perfilPanel button {
+    transition: all 0.2s ease;
+}
+
+/* Transición suave entre vista info y formulario */
+#vistaInfoPerfil,
+#vistaEditarPerfil {
+    transition: opacity 0.2s ease;
+}
+
+
+/* ─── ANIMACIÓN DE ENTRADA (página carga) ─────────────────────── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    animation: fadeUp 0.7s ease both;
+}
+
+header p {
+    animation: fadeUp 0.7s ease 0.15s both;
+}
+
+header .mt-10 {
+    animation: fadeUp 0.7s ease 0.3s both;
+}
+
+header .mt-8 {
+    animation: fadeUp 0.7s ease 0.2s both;
+}
+
+
+/* ─── BARRA AMARILLA (fecha y lugar) ─────────────────────────── */
+/* El marquee visual de la barra de info ya usa Tailwind;
+   aquí solo añadimos overflow por si el texto se corta */
+#como-funciona,
+#ruta,
+#premios,
+#faq {
+    scroll-margin-top: 80px;
+}
+
+
+/* ─── RESPONSIVE: ocultar barra de info en pantallas muy chicas ─ */
+@media (max-width: 480px) {
+    nav .text-2xl {
+        font-size: 1.1rem;
+    }
+}
