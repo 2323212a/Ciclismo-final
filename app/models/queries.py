@@ -5,27 +5,37 @@ def crear_usuario(nombre, email, password, categoria, rol="usuario"):
     conn = get_connection()
     cursor = conn.cursor()
 
-    # validar rol
-    cursor.execute("SELECT id FROM roles WHERE nombre = %s", (rol,))
-    rol_data = cursor.fetchone()
+    try:
+        print("🔥 INSERTANDO:", nombre, email, rol)
 
-    if not rol_data:
+        # Buscar rol_id
+        cursor.execute("SELECT id FROM roles WHERE nombre = %s", (rol,))
+        rol_data = cursor.fetchone()
+
+        print("🔥 ROL DATA:", rol_data)
+
+        if not rol_data:
+            raise Exception("Rol no existe en la BD")
+
+        rol_id = rol_data[0]
+
+        query = """
+        INSERT INTO usuarios (nombre, email, password, categoria, rol_id)
+        VALUES (%s, %s, %s, %s, %s)
+        """
+
+        cursor.execute(query, (nombre, email, password, categoria, rol_id))
+        conn.commit()
+
+        print("✅ USUARIO INSERTADO")
+
+    except Exception as e:
+        print("💥 ERROR EN QUERY:", e)
+        raise e
+
+    finally:
         cursor.close()
         conn.close()
-        raise Exception("Rol no válido")
-
-    rol_id = rol_data[0]
-
-    query = """
-    INSERT INTO usuarios (nombre, email, password, categoria, rol_id)
-    VALUES (%s, %s, %s, %s, %s)
-    """
-
-    cursor.execute(query, (nombre, email, password, categoria, rol_id))
-    conn.commit()
-
-    cursor.close()
-    conn.close()
 
  # READ ALL
 def obtener_usuarios():
