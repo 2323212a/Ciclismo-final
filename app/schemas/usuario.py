@@ -1,8 +1,12 @@
 from pydantic import BaseModel
 
+
 class Usuario(BaseModel):
     nombre: str
     email: str
     password: str
-    categoria: str
-    rol: str = "usuario"   # 🔥 AQUÍ ESTÁ LA MAGIA
+
+    categoria_id: int
+    evento_id: int
+
+    rol: str = "usuario"

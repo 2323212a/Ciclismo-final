@@ -318,11 +318,15 @@
                 </div>
                 <div>
                     <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Categoría</label>
-                    <select name="categoria"
+                    <select name="categoria_id"
                         class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
-                        <option value="Amateur">Amateur — 25 km · $150 MXN</option>
-                        <option value="Semi-Pro">Semi-Pro — 50 km · $250 MXN</option>
-                        <option value="Alto Rendimiento">Alto Rendimiento — 80 km · $400 MXN</option>
+
+                        <option value="1">Amateur — 25 km · $150 MXN</option>
+
+                        <option value="2">Semi-Pro — 50 km · $250 MXN</option>
+
+                        <option value="3">Alto Rendimiento — 80 km · $400 MXN</option>
+
                     </select>
                 </div>
                 <div class="md:col-span-2 mt-4">
@@ -439,9 +443,9 @@
                         <label class="block text-xs uppercase text-gray-500 mb-2 font-bold">Categoría</label>
                         <select id="editCategoria"
                             class="w-full bg-black border border-gray-700 p-3 focus:border-[#d4ff00] outline-none transition">
-                            <option value="Amateur">Amateur — 25 km · $150 MXN</option>
-                            <option value="Semi-Pro">Semi-Pro — 50 km · $250 MXN</option>
-                            <option value="Alto Rendimiento">Alto Rendimiento — 80 km · $400 MXN</option>
+                            <option value="1">Amateur — 25 km · $150 MXN</option>
+                            <option value="2">Semi-Pro — 50 km · $250 MXN</option>
+                            <option value="3">Alto Rendimiento — 80 km · $400 MXN</option>
                         </select>
                     </div>
                     <div class="md:col-span-2 flex flex-wrap gap-4 mt-2">
@@ -600,7 +604,9 @@
             // Precargar valores en el formulario de edición
             document.getElementById("editNombre").value    = u.nombre;
             document.getElementById("editEmail").value     = u.email;
-            document.getElementById("editCategoria").value = u.categoria;
+            document.getElementById("editCategoria").value =
+                u.categoria === "Amateur" ? 1 :
+                u.categoria === "Semi-Pro" ? 2 : 3;
             document.getElementById("editPassword").value  = "";
         }
 
@@ -618,11 +624,19 @@
             e.preventDefault();
 
             const data = {
-                nombre:    this.querySelector('[name="nombre"]').value,
-                email:     this.querySelector('[name="email"]').value,
-                password:  this.querySelector('[name="password"]').value,
-                categoria: this.querySelector('[name="categoria"]').value,
-                rol:       "usuario"  // el rol siempre es participante al registrarse
+                nombre: this.querySelector('[name="nombre"]').value,
+
+                email: this.querySelector('[name="email"]').value,
+
+                password: this.querySelector('[name="password"]').value,
+
+                categoria_id: parseInt(
+                    this.querySelector('[name="categoria_id"]').value
+                ),
+
+                evento_id: 1,
+
+                rol: "usuario"
             };
 
             try {
@@ -700,12 +714,16 @@
                 return;
             }
 
-            const data = {
+           const data = {
                 nombre,
                 email,
                 password,
-                categoria,
-                rol: sesionUsuario.rol  // conservar el rol actual
+
+                categoria_id: parseInt(categoria),
+
+                evento_id: 1,
+
+                rol: sesionUsuario.rol
             };
 
             try {
